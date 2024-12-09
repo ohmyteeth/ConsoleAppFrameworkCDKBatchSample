@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SampleBatch Run": {
+      "commandName": "Project",
+      "commandLineArgs": "SampleBatch Run"
+    }
+  }
+}
