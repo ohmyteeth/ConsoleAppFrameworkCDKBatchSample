@@ -1,12 +1,13 @@
-﻿using Batch.Filters;
-using System.Reflection;
+﻿global using ConsoleAppFramework;
+using Batch.Filters;
+using Microsoft.Extensions.Hosting;
 
-var builder = ConsoleApp.CreateBuilder(args, (context, options) => {
-    options.GlobalFilters = [new BatchFilter()];
-    options.NameConverter = s => s; // 変換しない
-});
+[assembly: ConsoleAppFrameworkGeneratorOptions(DisableNamingConversion = true)]
 
-var app = builder.Build();
-app.AddAllCommandType(Assembly.GetExecutingAssembly());
+var builder = Host.CreateApplicationBuilder();
+var app = builder.ToConsoleAppBuilder();
 
-app.Run();
+app.UseFilter<BatchFilter>();
+
+app.Run(args);
+

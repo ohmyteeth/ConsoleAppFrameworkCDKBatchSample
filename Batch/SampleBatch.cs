@@ -2,7 +2,8 @@
 
 namespace Batch;
 
-public class SampleBatch : ConsoleAppBase {
+[RegisterCommands(nameof(SampleBatch))]
+public class SampleBatch {
     /// <summary>
     /// 19時に実行
     /// </summary>
